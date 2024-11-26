@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text & Words Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1b2631, #2c3e50, #34495e);
+            background-size: cover;
+            color: #ecf0f1;
+        }
+
+        .counter-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            background: #2d3436;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .counter-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #f39c12;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        textarea {
+            resize: none;
+            border: none;
+            outline: none;
+            padding: 1.2rem;
+            font-size: 1rem;
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            background: #34495e;
+            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea::placeholder {
+            color: #bdc3c7;
+        }
+
+        textarea:focus {
+            background: #3b3f47;
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .output {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            color: #ecf0f1;
+            font-size: 1rem;
+            font-weight: bold;
+            background: #1e272e;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            margin-top: 0.5rem;
+        }
+
+        .output span {
+            padding: 0.5rem 1rem;
+        }
+
+        footer {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter-container">
+        <h2>Text & Words Counter</h2>
+        <textarea id="inputText" cols="10" rows="5" placeholder="Enter text here..."></textarea>
+        <div class="output">
+            <span id="char">0 Characters</span>
+            <span id="words">0 Words</span>
+        </div>
+        <footer>Made by ❤️ Rohith tompe...</footer>
+    </div>
+
+    <script>
+        const userText = document.getElementById('inputText');
+        const characters = document.getElementById('char');
+        const totalWords = document.getElementById('words');
+
+        userText.addEventListener('input', function () {
+            const text = userText.value.trim();
+            characters.innerHTML = `${text.length} Characters`;
+            totalWords.innerHTML = `${text.split(/\s+/).filter(Boolean).length} Words`;
+        });
+    </script>
+
+</body>
+</html>
